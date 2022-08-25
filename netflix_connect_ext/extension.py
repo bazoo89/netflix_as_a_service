@@ -14,7 +14,7 @@ from connect.eaas.extension import (
 
 class Netflix_as_a_serviceExtension(Extension):
     
-    def execute_scheduled_processing(self, schedule):  # pragma: no cover
+    def execute_scheduled_processing(self, schedule):  # Scheduled process, not used
         self.logger.info(
             f"Received event for schedule  {schedule['id']}",
         )
@@ -29,7 +29,7 @@ class Netflix_as_a_serviceExtension(Extension):
         )
         self.logger.warning(f"Approved request {request['id']}")
 
-    def process_asset_purchase_request(self, request): # This example function processes purchase subscription requests
+    def process_asset_purchase_request(self, request): # This function processes purchase subscription requests
         self.logger.info(
             f"Received event for request {request['id']}, type {request['type']} "
             f"in status {request['status']}"
@@ -40,7 +40,7 @@ class Netflix_as_a_serviceExtension(Extension):
             self.approve_asset_request(request, template_id)
         return ProcessingResponse.done()
 
-    def process_asset_change_request(self, request): # This example function processes change subscription requests
+    def process_asset_change_request(self, request): # This function processes change subscription requests
         self.logger.info(
             f"Received event for request {request['id']}, type {request['type']} "
             f"in status {request['status']}"
@@ -51,7 +51,7 @@ class Netflix_as_a_serviceExtension(Extension):
             self.approve_asset_request(request, template_id)
         return ProcessingResponse.done()
 
-    def process_asset_cancel_request(self, request): # This example function processes cancel subscription requests
+    def process_asset_cancel_request(self, request): # This function processes cancel subscription requests
         self.logger.info(
             f"Received event for request {request['id']}, type {request['type']} "
             f"in status {request['status']}"
@@ -62,7 +62,7 @@ class Netflix_as_a_serviceExtension(Extension):
             self.approve_asset_request(request, template_id)
         return ProcessingResponse.done()
 
-    def process_asset_suspend_request(self, request): # This example function processes suspend subscription requests
+    def process_asset_suspend_request(self, request): # This function processes suspend subscription requests
         self.logger.info(
             f"Received event for request {request['id']}, type {request['type']} "
             f"in status {request['status']}"
@@ -73,7 +73,7 @@ class Netflix_as_a_serviceExtension(Extension):
             self.approve_asset_request(request, template_id)
         return ProcessingResponse.done()
  
-    def process_asset_resume_request(self, request): # This example function processes resume subscription requests
+    def process_asset_resume_request(self, request): # This function processes resume subscription requests
         self.logger.info(
             f"Received event for request {request['id']}, type {request['type']} "
             f"in status {request['status']}"
